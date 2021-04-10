@@ -1,7 +1,6 @@
 {
   "name": "rpg",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "jest"
@@ -10,7 +9,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^7.0.3",
+    "inquirer": "^7.0.3"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rookoyole/teamprofile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rookoyole/teamprofile/issues"
+  },
+  "homepage": "https://github.com/rookoyole/teamprofile#readme",
+  "description": "",
+  "devDependencies": {
     "jest": "^24.9.0"
   }
 }
