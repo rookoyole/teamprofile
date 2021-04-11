@@ -7,6 +7,7 @@ const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 const Employee = require('./lib/Employee.js');
+const directory = [];
 
 class Profile {
     constructor() {
@@ -37,11 +38,15 @@ class Profile {
             message: 'What is the managers office number?'
         }])
         .then(({ name, id, email, office }) => {
-            this.manager = new Manager(name, id, email, office);
-            console.log(this.manager);
-            console.log(this.manager.getRole());
-            this.addEmployee();
+            var newManager = new Manager(name, id, email, office);
+            return newManager;
         })
+        .then(obj => {
+            var managerObj = {name: obj.name, id: obj.id, email: obj.email, office: obj.office, role: 'Manager'}; 
+            directory.push(managerObj);
+            console.log(managerObj);
+            this.addEmployee();
+        });
     }
 
     addEmployee() {
@@ -58,7 +63,7 @@ class Profile {
             } else if (action === 'Add Intern') {
                 this.addIntern();
             } else {
-
+                this.deconstructData();
             }
         });
     }
@@ -87,8 +92,13 @@ class Profile {
             message: 'What is the engineers github username?'
         }])
         .then(({ name, id, email, github }) => {
-            this.engineer = new Engineer(name, id, email, github);
-            console.log(this.engineer);
+            var newEngineer = new Engineer(name, id, email, github);
+            return newEngineer;
+        })
+        .then(obj => {
+            var engineerObj = {name: obj.name, id: obj.id, email: obj.email, github: obj.github, role: 'Engineer'}; 
+            directory.push(engineerObj);
+            console.log(directory);
             this.addEmployee();
         });
     }
@@ -117,10 +127,46 @@ class Profile {
             message: 'What school does the intern go to?'
         }])
         .then(({ name, id, email, school }) => {
-            this.intern = new Intern(name, id, email, school);
-            console.log(this.intern);
+            var newIntern = new Intern(name, id, email, school);
+            return newIntern;
+        })
+        .then(obj => {
+            var internObj = {name: obj.name, id: obj.id, email: obj.email, school: obj.school, role: 'Intern'}; 
+            directory.push(internObj);
+            console.log(internObj);
             this.addEmployee();
         });
+    }
+
+    //sort all data into different arrays for organized layout
+    deconstructData(){
+        const managerData = [];
+        const engineerData = [];
+        const internData = [];
+        for (var i = 0; i < directory.length; i++){
+            if(directory[i].role == 'Manager'){
+                managerData.push(directory[i]);
+            }
+            else if(directory[i].role == 'Engineer'){
+                engineerData.push(directory[i]);
+            }
+            else if(directory[i].role == 'Intern'){
+                internData.push(directory[i]);
+            }
+        };
+        console.log(managerData);
+        console.log(engineerData);
+        console.log(internData);
+        /*
+        let pageText = `
+        ${this.generateHeader()}
+        ${this.generateManager(managerData)}
+        ${this.generateEngineer(engineerData)}
+        ${this.generateIntern(internData)}
+        ${this.generateFooter()}
+        `
+        return this.writeFile(pageText);
+        */
     }
 }
 
