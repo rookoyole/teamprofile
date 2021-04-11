@@ -1,4 +1,4 @@
-
+/*
 // create the about section
 const generateAbout = aboutText => {
   if (!aboutText) {
@@ -59,10 +59,58 @@ const generateProjects = projectsArr => {
   `;
 };
 
+deconstructData(){
+  const managerData = [];
+  const engineerData = [];
+  const internData = [];
+  for (var i = 0; i < directory.length; i++){
+      if(directory[i].role == 'Manager'){
+          managerData.push(directory[i]);
+      }
+      else if(directory[i].role == 'Engineer'){
+          engineerData.push(directory[i]);
+      }
+      else if(directory[i].role == 'Intern'){
+          internData.push(directory[i]);
+      }
+  };
+  console.log(managerData);
+  console.log(engineerData);
+  console.log(internData);
+  
+  let pageText = `
+  ${this.generateHeader()}
+  ${this.generateManager(managerData)}
+  ${this.generateEngineer(engineerData)}
+  ${this.generateIntern(internData)}
+  ${this.generateFooter()}
+  `
+  return this.writeFile(pageText);
+*/
+
+
 // export function to generate entire page
-module.exports = templateData => {
+module.exports = directory => {
   // destructure page data by section
-  const { projects, about, ...header } = templateData;
+ // const { projects, about, ...header } = templateData;
+
+ const managerData = [];
+ const engineerData = [];
+ const internData = [];
+ for (var i = 0; i < directory.length; i++){
+     if(directory[i].role == 'Manager'){
+         managerData.push(directory[i]);
+     }
+     else if(directory[i].role == 'Engineer'){
+         engineerData.push(directory[i]);
+     }
+     else if(directory[i].role == 'Intern'){
+         internData.push(directory[i]);
+     }
+ };
+ console.log(managerData);
+ console.log(engineerData);
+ console.log(internData);
 
   return `
   <!DOCTYPE html>
@@ -73,28 +121,28 @@ module.exports = templateData => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Portfolio Demo</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
+    <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" 
+    crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
   </head>
   
   <body>
     <header>
       <div class="container flex-row justify-space-between align-center py-3">
-        <h1 class="page-title text-secondary bg-dark py-2 px-3">${header.name}</h1>
+        <h1 class="page-title text-secondary bg-dark py-2 px-3"></h1>
         <nav class="flex-row">
-          <a class="ml-2 my-1 px-2 py-1 bg-secondary text-dark" href="https://github.com/${header.github}">GitHub</a>
+          <a class="ml-2 my-1 px-2 py-1 bg-secondary text-dark" href="https://github.com/">GitHub</a>
         </nav>
       </div>
     </header>
     <main class="container my-5">
-      ${generateAbout(about)}
-      ${generateProjects(projects)}
+
     </main>
-    <footer class="container text-center py-3">
-      <h3 class="text-dark">&copy;2020 by ${header.name}</h3>
-    </footer>
   </body>
   </html>
   `;
+  
 };

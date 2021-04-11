@@ -39,14 +39,11 @@ class Profile {
         }])
         .then(({ name, id, email, office }) => {
             var newManager = new Manager(name, id, email, office);
-            return newManager;
-        })
-        .then(obj => {
-            var managerObj = {name: obj.name, id: obj.id, email: obj.email, office: obj.office, role: 'Manager'}; 
-            directory.push(managerObj);
-            console.log(managerObj);
+           // var managerObj = {name: obj.name, id: obj.id, email: obj.email, office: obj.office, role: 'Manager'}; 
+            directory.push(newManager);
+            console.log(newManager);
             this.addEmployee();
-        });
+        })
     }
 
     addEmployee() {
@@ -62,8 +59,11 @@ class Profile {
                 this.addEngineer();
             } else if (action === 'Add Intern') {
                 this.addIntern();
-            } else {
-                this.deconstructData();
+            } else if (action === 'Finished') {
+                //this.deconstructData();
+                console.log(directory);
+                writeFile(generatePage(directory));
+                //return directory;
             }
         });
     }
@@ -137,7 +137,7 @@ class Profile {
             this.addEmployee();
         });
     }
-
+    /*
     //sort all data into different arrays for organized layout
     deconstructData(){
         const managerData = [];
@@ -157,7 +157,7 @@ class Profile {
         console.log(managerData);
         console.log(engineerData);
         console.log(internData);
-        /*
+        
         let pageText = `
         ${this.generateHeader()}
         ${this.generateManager(managerData)}
@@ -166,33 +166,14 @@ class Profile {
         ${this.generateFooter()}
         `
         return this.writeFile(pageText);
-        */
+        
     }
-}
+    */
+}   
 
-
-
-/*
-const promptProject = readmeData => {
-    console.log(`
-    =================
-    Add a New Project
-    =================
-    `);
-    
-    // If there's no 'projects' array property, create one
-    if (!readmeData.projects) {
-      readmeData.projects = [];
-    }
-}
-*/
 
 new Profile().initialize();
-
 /*
-  .then(portfolioData => {
-    return generatePage(portfolioData);
-  })
   .then(pageHTML => {
     return writeFile(pageHTML);
   })
@@ -206,4 +187,4 @@ new Profile().initialize();
   .catch(err => {
     console.log(err);
   });
-  */
+*/
