@@ -11,11 +11,11 @@ test('Can set Github username via constructor', () => {
 test('Can get Github username via getGithub()', () => {
     const engineer = new Engineer('Kyle', '123123', 'rookoyole@gmail.com', 'rookoyole');
 
-    expect(engineer.getGithub()).toHaveProperty('rookoyole');
+    expect(engineer.getGithub()).toEqual('rookoyole');
 });
 
 test('getRole() should return Engineer', () => {
     const engineer = new Engineer('Kyle', '123123', 'rookoyole@gmail.com', 'rookoyole');
 
-    expect(engineer.getRole()).toHaveProperty('Engineer');
+    expect(engineer.getRole()).toEqual('Engineer');
 });
