@@ -1,127 +1,108 @@
-# 10 Object-Oriented Programming: Team Profile Generator
-
-Your challenge is to build a Node.js command-line application that takes in information about employees on a software engineering team and generates an HTML webpage that displays summaries for each person. Because testing is key to making code maintainable, you’ll also write unit tests for each part of your code and ensure that it passes all of them.
-
-Because this application won’t be deployed, you’ll also need to provide a link to a walkthrough video that demonstrates its functionality and all of the tests passing. You’ll need to submit a link to the video **and** add it to the README of your project.
-
-**Note**: There is no starter code for this assignment.
-
-## User Story
- 
-
-```md
-AS A manager
-I WANT to generate a webpage that displays my team's basic info
-SO THAT I have quick access to their emails and GitHub profiles
-```
-
-## Acceptance Criteria
-
-```md
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for my team members and their information
-THEN an HTML file is generated that displays a nicely formatted team roster based on user input
-WHEN I click on an email address in the HTML
-THEN my default email program opens and populates the TO field of the email with the address
-WHEN I click on the GitHub username
-THEN that GitHub profile opens in a new tab
-WHEN I start the application
-THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
-WHEN I enter the team manager’s name, employee ID, email address, and office number
-THEN I am presented with a menu with the option to add an  engineer or an intern or to finish building my team
-WHEN I select the engineer option
-THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
-WHEN I select the intern option
-THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
-WHEN I decide to finish building my team
-THEN I exit the application, and the HTML is generated
-```
-
-## Mock-Up
-
-The following image shows the generated HTML’s appearance and functionality. The styling in the image is just an example, so feel free to add your own styles:
-
-![HTML webpage titled “My Team” features five boxes listing employee names, titles, and other key info.](./Assets/10-object-oriented-programming-homework-demo.png)
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Thanks again! Now go create something AMAZING! :D
+***
+***
+***
+*** To avoid retyping too much info. Do a search and replace for the following:
+*** github_username, repo_name, twitter_handle, email, project_title, project_description
+-->
 
 
-## Getting Started
 
-This Challenge will combine many of the skills you’ve learned over the first ten weeks of this course. To help you get started, we’ve provided some guidelines in addition to the User Story and Acceptance Criteria.
-
-Your application should use [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer) for collecting input from the user. The application will be invoked by using the following command:
-
-```bash
-node index.js
-```
-
-It is recommended that you start with a directory structure that looks like this:
-
-```md
-__tests__/			// jest tests
-  Employee.test.js
-  Engineer.test.js
-  Intern.test.js
-  Manager.test.js
-dist/               			// rendered output (HTML) and CSS style sheet
-lib/				// classes
-src/				// template helper code
-index.js			// runs the application
-```
-
-The application must have these classes: `Employee`, `Manager`, `Engineer`, and `Intern`. The tests for these classes (in the `_tests_` directory) **must all pass**.
-
-The first class is an Employee parent class with the following properties and methods:
-
-* `name`
-
-* `id`
-
-* `email`
-
-* `getName()`
-
-* `getId()`
-
-* `getEmail()`
-
-* `getRole()`   // Returns 'Employee'
-
-The other three classes will extend `Employee`.
-
-In addition to `Employee`'s properties and methods, `Manager` will also have:
-
-* `officeNumber`
-
-* `getRole()`   // Overridden to return 'Manager'
-
-In addition to `Employee`'s properties and methods, `Engineer` will also have:
-
-* `github`  // GitHub username
-
-* `getGithub()`
-
-* `getRole()`   // Overridden to return 'Engineer'
-
-In addition to `Employee`'s properties and methods, `Intern` will also have:
-
-* `school`
-
-* `getSchool()`
-
-* `getRole()`   // Overridden to return 'Intern'
-
-Finally, although it’s not a requirement, you should consider adding validation to ensure that user input provided is in the proper expected format.
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
-## Review
 
-You are required to submit the following for review:
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/rookoyole/teamprofile">
+    <img src="./assets/images/Profile-Pic.jpg" alt="Logo" width="80" height="80">
+  </a>
 
-* A walkthrough video demonstrating the functionality of the application and passing tests.
+  <h3 align="center">Team Roster Generator</h3>
 
-* A sample HTML file generated using your application.
+  <p align="center">
+    UA Bootcamp - Module 10 Challenge
+        <br />
+        <a href="https://github.com/rookoyole/teamprofile"><strong>Explore the docs »</strong></a>
+        <br />
+        <br />
+        <a href="https://github.com/rookoyole/teamprofile">View Demo</a>
+        ·
+        <a href="https://github.com/rookoyole/teamprofile/issues">Report Bug</a>
+        ·
+        <a href="https://github.com/rookoyole/teamprofile/issues">Request Feature</a>
+  </p>
+</p>
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
 
-- - -
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <ol>
+    <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#project-links">Project Links</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+[![Product Name Screen Shot][product-screenshot]](assets/images/screenshot.png)
+<br />
+The purpose of this project was to create a team roster HTML generator from console input questions.
+
+Features:
+* File created in HTML format
+* Multiple employees able to be added
+* Email hyperlinks open in new tab, in default email program
+* Github link opens in new tab
+* Written completely in Javascript
+
+<!-- PROJECT LINKS -->
+## Project Links
+
+Repository Link: [https://github.com/rookoyole/teamprofile](https://github.com/rookoyole/teamprofile)
+
+Instructional Video: [https://drive.google.com/file/d/1hCtCJSkfsTzrBTzTyjJ4mqb3K9A3dyrh/view](https://drive.google.com/file/d/1hCtCJSkfsTzrBTzTyjJ4mqb3K9A3dyrh/view)
+
+<!-- CONTACT -->
+## Contact
+
+Kyle Ryan - rookoyole@gmail.com
+
+Template from: https://github.com/othneildrew/Best-README-Template/blob/master/README.md
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/rookoyole/teamprofile.svg?style=for-the-badge
+[contributors-url]: https://github.com/rookoyole/teamprofile/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/rookoyole/teamprofile.svg?style=for-the-badge
+[forks-url]: https://github.com/rookoyole/teamprofile/network/members
+[stars-shield]: https://img.shields.io/github/stars/rookoyole/teamprofile.svg?style=for-the-badge
+[stars-url]: https://github.com/rookoyole/teamprofile/stargazers
+[issues-shield]: https://img.shields.io/github/issues/rookoyole/teamprofile.svg?style=for-the-badge
+[issues-url]: https://github.com/rookoyole/teamprofile/issues
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: www.linkedin.com/in/kyle-ryan-5b526023
+[product-screenshot]: assets/images/screenshot.png

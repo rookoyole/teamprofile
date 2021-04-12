@@ -82,9 +82,9 @@ module.exports = directory => {
          internData.push(directory[i]);
      }
  };
- console.log(managerData);
- console.log(engineerData);
- console.log(internData);
+ //console.log(managerData);
+ //console.log(engineerData);
+ //console.log(internData);
 
   return `
   <!DOCTYPE html>
