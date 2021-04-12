@@ -39,11 +39,14 @@ class Profile {
         }])
         .then(({ name, id, email, office }) => {
             var newManager = new Manager(name, id, email, office);
-           // var managerObj = {name: obj.name, id: obj.id, email: obj.email, office: obj.office, role: 'Manager'}; 
-            directory.push(newManager);
-            console.log(newManager);
-            this.addEmployee();
+            return newManager;
         })
+        .then(obj => {
+            var managerObj = {name: obj.name, id: obj.id, email: obj.email, office: obj.office, role: 'Manager'};
+            directory.push(managerObj);
+            //console.log(managerObj);
+            this.addEmployee();
+        });
     }
 
     addEmployee() {
@@ -61,7 +64,7 @@ class Profile {
                 this.addIntern();
             } else if (action === 'Finished') {
                 //this.deconstructData();
-                console.log(directory);
+                //console.log(directory);
                 writeFile(generatePage(directory));
                 //return directory;
             }
@@ -98,7 +101,6 @@ class Profile {
         .then(obj => {
             var engineerObj = {name: obj.name, id: obj.id, email: obj.email, github: obj.github, role: 'Engineer'}; 
             directory.push(engineerObj);
-            console.log(directory);
             this.addEmployee();
         });
     }
@@ -133,7 +135,6 @@ class Profile {
         .then(obj => {
             var internObj = {name: obj.name, id: obj.id, email: obj.email, school: obj.school, role: 'Intern'}; 
             directory.push(internObj);
-            console.log(internObj);
             this.addEmployee();
         });
     }
