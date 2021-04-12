@@ -5,7 +5,7 @@ const Manager = require('../lib/Manager.js');
 test('Can set office number via constructor', () => {
   const manager = new Manager('Kyle', '123123', 'rookoyole@gmail.com', '42');
 
-  expect(manager.officeNumber).toBe('42');
+  expect(manager.office).toBe('42');
 });
 
 test('Can get office number via getOffice()', () => {

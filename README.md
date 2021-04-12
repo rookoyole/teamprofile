@@ -84,7 +84,7 @@ Features:
 
 Repository Link: [https://github.com/rookoyole/teamprofile](https://github.com/rookoyole/teamprofile)
 
-Instructional Video: [https://drive.google.com/file/d/1hCtCJSkfsTzrBTzTyjJ4mqb3K9A3dyrh/view](https://drive.google.com/file/d/1hCtCJSkfsTzrBTzTyjJ4mqb3K9A3dyrh/view)
+Instructional Video: [https://drive.google.com/file/d/1gTIoc3Ha0rXYsuYLW9qufrn-VNvZNnPb/view](https://drive.google.com/file/d/1gTIoc3Ha0rXYsuYLW9qufrn-VNvZNnPb/view)
 
 <!-- CONTACT -->
 ## Contact
